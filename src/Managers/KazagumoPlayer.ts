@@ -8,7 +8,7 @@ import {
   TrackExceptionEvent,
   TrackStuckEvent,
   WebSocketClosedEvent,
-  PlayOptions as ShoukakuPlayOptions
+  PlayOptions as ShoukakuPlayOptions,
 } from 'shoukaku';
 import {
   Events,
