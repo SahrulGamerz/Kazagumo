@@ -16,11 +16,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:full": "npm run lint && npm run format && npm run build:docs && npm run build",
+    "build:ts": "npm run lint && npm run format && npm run build",
     "build": "tsc",
     "format": "prettier --write \"src/**/**/*.ts\"",
     "lint": "tslint -p tsconfig.json",
     "build:docs": "typedoc --readme README.md --out docs/ --entryPointStrategy expand src/.",
-    "prepare": "npm run build:full"
+    "prepare": "npm run build:ts"
   },
   "keywords": [
     "lavalink",
