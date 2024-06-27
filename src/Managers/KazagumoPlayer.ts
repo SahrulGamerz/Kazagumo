@@ -308,7 +308,7 @@ export class KazagumoPlayer {
       return this;
     }
 
-    const playOptions: ShoukakuPlayOptions = { track: { encoded: current.track, identifier: current.identifier } };
+    const playOptions: ShoukakuPlayOptions = { track: { encoded: current.track } };
     if (options) {
       playOptions.position = options.startTime;
       playOptions.endTime = options.endTime;
