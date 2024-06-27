@@ -8,6 +8,7 @@ import {
   TrackExceptionEvent,
   TrackStuckEvent,
   WebSocketClosedEvent,
+  PlayOptions as ShoukakuPlayOptions
 } from 'shoukaku';
 import {
   Events,
@@ -307,11 +308,14 @@ export class KazagumoPlayer {
       return this;
     }
 
-    const playOptions = { track: current.track, options: {} };
-    if (options) playOptions.options = { ...options, noReplace: false };
-    else playOptions.options = { noReplace: false };
+    const playOptions: ShoukakuPlayOptions = { track: { encoded: current.track, identifier: current.identifier } };
+    if (options) {
+      playOptions.position = options.startTime;
+      playOptions.endTime = options.endTime;
+      playOptions.paused = options.pause;
+    }
 
-    this.shoukaku.playTrack(playOptions);
+    this.shoukaku.playTrack(playOptions, options.noReplace ?? options.replaceCurrent ?? false);
 
     return this;
   }
